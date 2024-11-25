@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¡Feliz cumpleaños, Rubén Gómez!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f2ec;
+            color: #333;
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        h1 {
+            color: #ff6f61;
+            margin: 0;
+        }
+        .heart {
+            font-size: 50px;
+            color: #ff6f61;
+            margin: 10px 0;
+        }
+        .hidden {
+            display: none;
+        }
+        a {
+            display: inline-block;
+            background-color: #ff6f61;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        a:hover {
+            background-color: #e85c50;
+        }
+        .message-box {
+            margin-top: 50px;
+            width: 90%;
+            max-width: 700px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .mensaje-texto {
+            font-size: 24px;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: transparent;
+            color: #333;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-y: auto;
+            max-height: 70%;
+        }
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button:hover {
+            background-color: #e85c50;
+        }
+        #mensaje-completado {
+            display: none;
+            font-size: 50px;
+            color: #ff6f61;
+            margin-top: 20px;
+            position: relative;
+        }
+        .imagenes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .imagenes-container img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .imagenes-container img:hover {
+            transform: scale(1.1);
+        }
+        /* Estilo para la imagen ampliada */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        #lightbox:target {
+            display: flex;
+        }
+        /* Estilo para el texto 'Te quiero' */
+        #mensaje-completado p {
+            font-size: 80px;
+            color: #ff6f61;
+            margin-top: 20px;
+        }
+        /* Ajuste para la imagen 5 y 6 en una misma fila */
+        .imagenes-container .fila-imagenes {
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="inicio">
+        <h1>¡Feliz Cumpleaños, Guapo!</h1>
+        <div class="heart">❤️</div>
+        <a href="javascript:void(0);" onclick="mostrarMensaje()">Continúa</a>
+    </div>
+
+    <div class="message-box" id="mensaje" style="display: none;">
+        <div class="mensaje-texto">
+            Rubén, en este día tan especial quiero desearte todo lo mejor. Espero que sigamos bien, que nos comuniquemos y entendamos mejor mutuamente y que nuestra relación siga creciendo para bien. Que podamos entendernos sin conflictos y, si alguna vez surgen, que tengamos la madurez para arreglarlos y llegar a acuerdos que nos hagan sentir bien y cómodos a ambos el uno con el otro. Te quiero mucho, y quiero que sigamos construyendo algo muy bonito juntos. ❤️
+        </div>
+        <br>
+        <button onclick="enviarMensaje()">Fin</button>
+    </div>
+
+    <div id="mensaje-completado">
+        <p>Te quiero ❤️</p>
+        <div class="imagenes-container" id="imagenes-container">
+            <img src="C:/Users/Jennifer Chavarria/OneDrive/Escritorio/images/WhatsApp Image 2024-11-24 at 7.41.12 PM (1).jpeg" alt="Imagen 1" onclick="verImagen(this.src)">
+            <img src="C:/Users/Jennifer Chavarria/OneDrive/Escritorio/images/WhatsApp Image 2024-11-24 at 7.41.12 PM (2).jpeg" alt="Imagen 2" onclick="verImagen(this.src)">
+            <img src="C:/Users/Jennifer Chavarria/OneDrive/Escritorio/images/WhatsApp Image 2024-11-24 at 7.41.12 PM (3).jpeg" alt="Imagen 3" onclick="verImagen(this.src)">
+            <img src="C:/Users/Jennifer Chavarria/OneDrive/Escritorio/images/WhatsApp Image 2024-11-24 at 7.41.12 PM.jpeg" alt="Imagen 4" onclick="verImagen(this.src)">
+            <div class="fila-imagenes">
+                <img src="C:/Users/Jennifer Chavarria/OneDrive/Escritorio/images/WhatsApp Image 2024-11-24 at 7.41.13 PM (1).jpeg" alt="Imagen 5" onclick="verImagen(this.src)">
+                <img src="C:/Users/Jennifer Chavarria/OneDrive/Escritorio/images/WhatsApp Image 2024-11-24 at 7.41.13 PM.jpeg" alt="Imagen 6" onclick="verImagen(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox (ampliación de imagen) -->
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img src="" id="lightbox-img" alt="Imagen Ampliada">
+    </div>
+
+    <script>
+        function mostrarMensaje() {
+            const inicio = document.getElementById('inicio');
+            inicio.classList.add('hidden');
+            const mensajeBox = document.getElementById('mensaje');
+            mensajeBox.style.display = 'flex';
+            mensajeBox.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function enviarMensaje() {
+            const mensajeBox = document.getElementById('mensaje');
+            mensajeBox.style.display = 'none';
+            const mensajeCompleto = document.getElementById('mensaje-completado');
+            mensajeCompleto.style.display = 'block';
+            const imagenesContainer = document.getElementById('imagenes-container');
+            imagenesContainer.style.display = 'flex';
+        }
+
+        function verImagen(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = 'flex';
+            lightboxImg.src = src;
+        }
+    </script>
+</body>
+</html>
